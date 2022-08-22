@@ -12,3 +12,16 @@ def details(request):
     
 def list(request):
     return HttpResponse("list")
+
+
+# dinamik kategori
+
+def getProductsByCategory(request, category):
+    category_text = None
+    if category == 'bilgisayar':
+        category_text = "bilgisayar  kategorisindeki ürünler"
+    elif category == 'telefon':
+        category_text = 'telefon kategorisindeki ürünler'
+    else:
+        category_text = 'yanlış kategori seçimi'
+    return HttpResponse(category_text)
