@@ -16,6 +16,10 @@ def list(request):
 
 # dinamik kategori
 
+
+def getProductsByCategoryId(request, category):
+    return HttpResponse(category)
+
 def getProductsByCategory(request, category):
     category_text = None
     if category == 'bilgisayar':
