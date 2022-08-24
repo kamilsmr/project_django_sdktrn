@@ -11,10 +11,11 @@ data = {
 }
 
 def index(request):
-    return HttpResponse("index")
+    category_list = list(data.keys())
+    return render(request, 'myapp/index.html')
+    
 
-def details(request):
-    return HttpResponse("details")
+
 
 
 
@@ -34,6 +35,9 @@ def getProductsByCategoryId(request, category_id):
 def getProductsByCategory(request, category):
     try:
         category_text = data[category]
-        return HttpResponse(category_text)
+        return render(request, 'myapp/products.html', {
+            "category":category
+            "category_text": category_text
+        })
     except:
         return HttpResponseNotFound("yanlış kategori seçimi")
