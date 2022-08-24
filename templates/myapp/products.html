@@ -8,6 +8,24 @@
 </head>
 <body>
     <h1>{{category}}</h1>
+
+    {% if products.count > 0 %}
+        <div>
+            {% for product in products %}
+                {{ product }}
+
+            {% endfor %}
+
+        </div>
+    {% else %}
+
+
+
+        <div>
+            No Products
+        </div>
+    {% endif %}
+        
     
 </body>
 </html>

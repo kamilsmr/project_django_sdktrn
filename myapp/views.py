@@ -3,8 +3,8 @@ from django.http.response import HttpResponse, HttpResponseRedirect, HttpRespons
 from django.shortcuts import render, redirect
 
 data = {
-    "telefon":"telefon kategorisindeki ürünler",
-    "bilgisayar":"telefon kategorisindeki ürünler",
+    "telefon":["samsung s20", "samsung s21"],
+    "bilgisayar":["laptop1", "laptop2"],
     "elektronik":"telefon kategorisindeki ürünler"
 
 
@@ -37,9 +37,10 @@ def getProductsByCategoryId(request, category_id):
 # redirect importunu from django.shortcuts import render, redirect
 def getProductsByCategory(request, category):
     try:
-        category_text = data[category]
+        products = data[category]
         return render(request, 'myapp/products.html', {
-            "category":category
+            "category":category,
+            "products":products
             
         })
     except:
