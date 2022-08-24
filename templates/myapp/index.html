@@ -8,6 +8,12 @@
 </head>
 <body>
     
-    <h1>index</h1>
+    {% for category in categories %}
+        <li>
+            <a href="{% url "products_by_category" category %}">{{ category }}</a>
+            
+        </li>
+
+    {% endfor %}
 </body>
 </html>
